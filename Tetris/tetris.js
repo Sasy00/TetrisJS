@@ -294,7 +294,7 @@ function reset()
 
 function update()
 {
-	playerSpan.innerHTML = "<h2>" + playerPoints + "<br> Livello: "+ currLevel + "<br>";
+	playerSpan.innerHTML = "<h2>" + playerPoints + "<br> Livello: "+ currLevel + "<br>" + "Righe: " + clearedRows;
     currLevel = Math.floor(clearedRows / DELTALEV) + 1;
 	
     var date = new Date();
@@ -313,13 +313,13 @@ function update()
 			pos.x--;
 		if(e.keyCode == '39' && !collisionRight())
 			pos.x++;
-        if(e.keyCode == '90')
+        if(e.keyCode == '90' || e.keyCode == '38')
         {
             var tempRot = (rot + 1) % 4;
             if(!collisionRotation(tempRot))
                 rot = tempRot;
         }
-		if(e.keyCode == '88' || e.keyCode == '38')
+		if(e.keyCode == '88')
 		{
 			var tempRot = (rot - 1)
 			if(tempRot < 0)
